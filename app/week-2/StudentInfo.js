@@ -1,12 +1,7 @@
-import React from 'react';
-
-function SimpleTextComponent() {
+function StudentInfo() {
   return (
-    <div>
-      <h1>Hello, world!</h1>
-      <p>This is some basic text rendered in React.</p>
-    </div>
+    <>
+    <h1>Tanner Petreman</h1>
+    <a href="https://github.com/Tpetreman99/cprg306-assignments">Here is a link to the GitHub repo!</a></>
   );
 }
-
-export default SimpleTextComponent;
