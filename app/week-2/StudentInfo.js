@@ -1,7 +1,13 @@
+import Link from "next/link";
 function StudentInfo() {
   return (
     <>
-    <h1>Tanner Petreman</h1>
-    <a href="https://github.com/Tpetreman99/cprg306-assignments">Here is a link to the GitHub repo!</a></>
+      <h1>Tanner Petreman</h1>
+      <Link href="https://github.com/Tpetreman99/cprg306-assignments">
+      Click here to go to the GitHub repo!
+      </Link>
+    </>
   );
 }
+
+export default StudentInfo;
