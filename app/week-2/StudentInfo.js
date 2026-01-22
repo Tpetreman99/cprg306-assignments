@@ -1,13 +1,13 @@
 import Link from "next/link";
-function StudentInfo() {
+
+export default function StudentInfo() {
   return (
-    <>
-      <h1>Tanner Petreman</h1>
-      <Link href="https://github.com/Tpetreman99/cprg306-assignments">
+    <section>
+      <h2>Name: Tanner Petreman</h2>
+      <Link href="https://github.com/Tpetreman99/cprg306-assignments" class="github-link">
       Click here to go to the GitHub repo!
       </Link>
-    </>
+    </section>
   );
 }
 
-export default StudentInfo;

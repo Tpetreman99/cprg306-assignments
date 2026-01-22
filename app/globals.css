@@ -24,3 +24,16 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.github-link {
+  text-decoration: underline;
+  color: black;
+}
+
+.github-link:hover {
+  color: blue
+}
+
+.github-link:visited {
+  color: purple;
+}
