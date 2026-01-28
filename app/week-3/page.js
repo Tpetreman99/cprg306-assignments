@@ -2,14 +2,14 @@ import GroceryItemList from "./GroceryItemList";
 
 export default function Page() {
   return (
-    <body>
+    <div>
       <header>
         <h1>Week-3</h1>
       </header>
-      <main>
-        <h1>Shopping List</h1>
+      <main style={{ padding: "1.5rem" }}>
+        <h1>Week 3: Shopping List</h1>
         <GroceryItemList />
       </main>
-    </body>
+      </div>
   );
 }

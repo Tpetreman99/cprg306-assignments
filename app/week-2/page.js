@@ -2,7 +2,7 @@ import StudentInfo from "./StudentInfo";
 
 export default function Page() {
   return (
-    <main>
+    <main style={{ padding: "1.5rem"}}>
       <h1>Week-2</h1>
       <StudentInfo />
     </main>
