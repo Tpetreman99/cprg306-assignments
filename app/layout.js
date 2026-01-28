@@ -17,6 +17,18 @@ export const metadata = {
   description: "Created by Tanner Peatreman for CPRG 306 class",
 };
 
+const headerStyle = {
+  padding: "1.5rem",
+  backgroundColor: "#1f2933",
+  color: "white",
+  borderBottom: "4px solid #3b82f6",
+};
+
+const pageTitleStyle = {
+  margin: 0,
+  fontSize: "2rem",
+};
+
 function SiteHeader() {
   return (
     <header style={headerStyle}>
@@ -38,15 +50,3 @@ export default function RootLayout({ children }) {
   );
 }
 
-
-const headerStyle = {
-  padding: "1.5rem",
-  backgroundColor: "#1f2933",
-  color: "white",
-  borderBottom: "4px solid #3b82f6",
-};
-
-const pageTitleStyle = {
-  margin: 0,
-  fontSize: "2rem",
-};
