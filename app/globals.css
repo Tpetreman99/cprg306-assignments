@@ -37,3 +37,12 @@ body {
 .github-link:visited {
   color: purple;
 }
+
+.page-headers {
+  font-size: xx-large;
+  font-weight: bold;
+  padding: 10;
+  color: #1f2933;
+  background-color: #1f2933;
+  text-decoration:underline;
+}
