@@ -40,9 +40,20 @@ body {
 
 .page-headers {
   font-size: xx-large;
-  font-weight: bold;
   padding: 10;
-  color: white;
+  color: rgb(254, 254, 254);
   background-color: #1f2933;
+  border-radius: 10;
+  text-align: center;
+  margin: 50;
+}
+
+.nav-links {
+  background-color: #1f2933;
+  color: #ffffff;
+  text-align: center;
+  margin: 10;
+  padding: 5;
+  border-radius: 10;
   
 }
