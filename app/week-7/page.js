@@ -15,7 +15,7 @@ export default function Page() {
   return (
     <main style={{ padding: "1.5rem" }}>
       <NavLinks/>
-      <h1 className="page-headers">Week 7: Sortable Shopping List</h1>
+      <h1 className="page-headers">Week 7: Sortable Shopping List (state managment)</h1>
       <NewItem onAddItem={handleAddItem}/>
       <div className="pt-6">
         <ItemList items={items}/>
