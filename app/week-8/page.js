@@ -16,20 +16,27 @@ export default function Page() {
 
   function handleItemSelect(item) {
     const itemName = item.name.split(",")[0].trim();
-    selectItemName(itemName);
+    setSelectItemName(itemName);
   }
 
   return (
     <main style={{ padding: "1.5rem" }}>
-      <NavLinks/>
+      <NavLinks />
       <h1 className="page-headers">Week 8: API integration | Meal suggestions</h1>
-      <NewItem onAddItem={handleAddItem}/>
-      <div className="pt-6">
-        <ItemList items={items}
-          onItemSelect={handleItemSelect}/>
-      </div>
 
-      <MealIdeas ingredient={selectItemName}/>
+      <div className="flex flex-col md:flex-row gap-8 pt-6 items-start">
+        <div className="w-full md:w-1/2">
+          <NewItem onAddItem={handleAddItem} />
+
+          <div className="pt-6">
+            <ItemList items={items} onItemSelect={handleItemSelect} />
+          </div>
+        </div>
+
+        <div className="w-full md:w-1/2">
+          <MealIdeas ingredient={selectItemName} />
+        </div>
+      </div>
     </main>
   );
 }
