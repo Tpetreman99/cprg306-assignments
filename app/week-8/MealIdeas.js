@@ -57,7 +57,13 @@ export default function MealIdeas({ingredient}) {
 
 async function fetchMealIdeas(ingredient) {
   try {
-    const formattedIngredient = ingredient.trim();
+
+    //console error was coming from the way the ingrediant was trimmed and sliced
+    const formattedIngredient = ingredient
+      .split(",")[0]
+      .replace(/[^a-zA-Z\s-]/g, "")
+      .trim()
+      .toLowerCase();
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${formattedIngredient}`);
     const data = await response.json();
     return data.meals || [];
