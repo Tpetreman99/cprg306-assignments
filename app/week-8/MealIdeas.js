@@ -29,7 +29,9 @@ export default function MealIdeas({ingredient}) {
       <div className="mt-6">
         <h2 className="text-2xl font-bold mb-4">Meal Ideas</h2>
 
-        {meals.length === 0 ? (
+        {!ingredient ? (
+          <p className="text-xl">Select an item for meal inspiration.</p>
+        ) : meals.length === 0 ? (
           <p className="text-xl">No meals found for {ingredient}</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -38,11 +40,12 @@ export default function MealIdeas({ingredient}) {
                 key={meal.idMeal}
                 className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 p-4"
               >
-                <img
-                  src={meal.strMealThumb}
-                  alt={meal.strMeal}
-                  className="w-full h-40 object-cover rounded-md mb-3"
-                />
+                {meal.strMealThumb ? (
+                  <img
+                    src={meal.strMealThumb}
+                    alt={meal.strMeal}
+                    className="w-full h-40 object-cover rounded-md mb-3"/>
+                ) : null}
                 <h3 className="text-lg font-semibold text-gray-900">{meal.strMeal}</h3>
               </div>
             ))}
@@ -54,13 +57,13 @@ export default function MealIdeas({ingredient}) {
 
 async function fetchMealIdeas(ingredient) {
   try {
-    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+    const formattedIngredient = ingredient.trim();
+    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${formattedIngredient}`);
     const data = await response.json();
-    return data.meals;
+    return data.meals || [];
   } catch (error) {
-    console.error(error)
-    console.log("No items found")
+    console.error("fetchMealsIdea error:", error)
+    // console.log("No items found")
+    return [];
   }
 }
-
-
