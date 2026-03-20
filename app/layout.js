@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { AuthContextProvider } from "./contexts/AuthContext.js";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Shopping List",
-  description: "Created by Tanner Peatreman for CPRG 306 class",
+  description: "Created by Tanner Petreman for CPRG 306 class",
 };
 
 const headerStyle = {
@@ -33,7 +34,7 @@ function SiteHeader() {
   return (
     <header style={headerStyle}>
       <Link href={"/"}>
-      <h1 style={pageTitleStyle}>CPRG 306 Assignments</h1>
+        <h1 style={pageTitleStyle}>CPRG 306 Assignments</h1>
       </Link>
     </header>
   );
@@ -43,10 +44,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <SiteHeader />
-        {children}
+        <AuthContextProvider>
+          <SiteHeader />
+          {children}
+        </AuthContextProvider>
       </body>
     </html>
   );
 }
-
