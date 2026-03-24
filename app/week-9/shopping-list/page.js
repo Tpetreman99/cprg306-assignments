@@ -5,7 +5,7 @@ import itemsArray from "./items.json";
 import { useState } from "react";
 import NavLinks from "../../components/nav";
 import MealIdeas from "./MealIdeas";
-import { useUserAuth } from "../contexts/AuthContext";
+import { useUserAuth } from "../../contexts/AuthContext";
 
 export default function Page() {
   const [items, setItems] = useState(itemsArray);
