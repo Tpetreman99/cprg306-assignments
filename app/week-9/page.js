@@ -1,5 +1,6 @@
 "use client";
 // Import the useUserAuth hook
+import { useState } from "react";
 import { useUserAuth } from "../contexts/AuthContext";
 import Link from "next/link";
 import NavLinks from "../components/nav";
@@ -7,13 +8,19 @@ import NavLinks from "../components/nav";
 export default function Home() {
   // Use the useUserAuth hook to get the user object and the login and logout functions
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
+    if (loading) return;
+
+    setLoading(true);
     try {
       // Sign in to Firebase with GitHub authentication
       await gitHubSignIn();
     } catch (error) {
-      console.error("Login failed:", error);
+      console.error("Login failed:", error.code, error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -56,13 +63,13 @@ export default function Home() {
                 Log in with your GitHub account to access your shopping list.
               </p>
 
-              <button className="github-signin-btn" onClick={handleLogin}>
+              <button className="github-signin-btn" onClick={handleLogin} disabled={loading}>
                 <img
                   src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png"
                   alt="GitHub Icon"
                   className="github-icon"
                 />
-                Login with GitHub
+                {loading ? "Signing in..." : "Login with GitHub"}
               </button>
             </div>
           )}
